@@ -1,0 +1,66 @@
+//Animation for the spin-loader
+@keyframes buffer-animation {
+
+    0% {
+        stroke-dasharray: 157; //157
+        stroke-dashoffset: 314; //314
+        rotate: 0deg;
+    }
+
+    50% {
+        stroke-dasharray: 157; //157
+        stroke-dashoffset: 157; //157
+        rotate: 90deg;
+    }
+
+    100% {
+        stroke-dasharray: 314; //314
+        stroke-dashoffset: 157; //157
+        rotate: 360deg;
+    }
+}
+
+//Animation for the page transitions
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+//Animation for the page transitions
+@keyframes scale-up {
+    from {
+        scale: 0;
+    }
+
+    to {
+        scale: 2;
+    }
+}
+
+//Animation for the hand emoji
+@keyframes wave-hand {
+
+    0%,
+    44%,
+    100% {
+        rotate: 0deg;
+    }
+
+    11% {
+        rotate: 20deg;
+    }
+
+    22% {
+        rotate: -20deg;
+    }
+
+    33% {
+        rotate: 20deg;
+    }
+
+}

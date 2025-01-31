@@ -1,0 +1,343 @@
+@use "../utils/" as *;
+
+.contact-page {
+  @include center-flex-column(25px);
+
+  &__title {
+    margin-top: 50px;
+  }
+
+  &__subtitle {
+    margin: 0 5px;
+  }
+
+  &__main-container {
+    width: 90%;
+    margin: auto;
+
+    @include center-flex;
+
+    gap: 75px;
+
+    margin-bottom: 50px;
+
+    @include tablet-only {
+      @include center-flex-column(50px);
+    }
+
+    @include mobile-only {
+      @include center-flex-column(50px);
+    }
+  }
+
+  &__contact-cards-container {
+    @include center-flex-column(25px);
+    align-self: flex-start;
+
+    @include tablet-only {
+      width: 100%;
+    }
+
+    @include mobile-only {
+      width: 100%;
+    }
+  }
+
+  &__contact-cards-container-title {
+    font-size: 20px;
+  }
+
+  &__contact-card {
+    padding: 20px 15px;
+
+    width: 360px;
+    min-height: 175px;
+
+    @include tablet-only {
+      width: inherit;
+    }
+
+    @include mobile-only {
+      width: inherit;
+    }
+
+    &-icon-container {}
+
+    &-icon {}
+
+    &-text {
+      @include center-flex-column(10px);
+    }
+
+    &-user-name {
+      color: var(--color-secondary);
+    }
+
+    &-link {
+      color: var(--color-secondary);
+
+      text-decoration: underline;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px;
+
+    gap: 20px;
+
+    max-width: 425px;
+    width: 425px;
+
+    position: relative;
+
+    @include tablet-only {
+      width: 100%;
+      max-width: none;
+    }
+
+    @include mobile-only {
+      width: 100%;
+      max-width: none;
+
+      background-color: transparent;
+      border: none;
+
+      padding: 0px;
+      margin-top: 25px;
+    }
+  }
+
+  &__send-form-button {
+    width: 100%;
+  }
+
+  &__send-form-feedback {
+    color: var(--_input-message-color);
+
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+
+    border-radius: 10px;
+
+    &--positive {
+      border: var(--_input-message-bg-success) var(--_border-width) solid;
+    }
+
+    &--negative {
+      border: var(--_input-message-bg-error) var(--_border-width) solid;
+    }
+  }
+
+
+  &__fieldset {
+    margin: auto;
+    width: 100%;
+
+    @include center-flex-column(45px);
+  }
+
+  &__legend {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    padding-bottom: 15px;
+
+    font-size: 20px;
+  }
+
+  --_input-message-color: white;
+  --_input-message-bg-success: darkgreen;
+  --_input-message-bg-error: red;
+
+  &__input-label-container {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    width: inherit;
+
+    --_border-clip-width: 85px;
+    --_border-width: 2px;
+
+    --_input-padding-inline: 15px;
+    --_input-padding-block: 10px;
+
+    --_transition-length: 150ms;
+
+    --_start-x: max(0px, calc(var(--_border-width) + var(--_input-padding-inline)));
+    --_end-x: max(0px, calc(var(--_start-x) + var(--_border-clip-width)));
+
+    --_label-scale-on-input-focus: 0.81;
+
+    --_label-inline-padding: 5px;
+
+    /**
+        If the container has inputs or textareas that aren't focused, add this color to the label
+        */
+    &:has(:is(input, textarea):not(:focus))>label {
+      color: var(--color-secondary);
+    }
+
+    &--empty-input>input {
+      border-radius: 20px 20px 0 0;
+      border-bottom: none;
+    }
+
+    &--empty-input>textarea {
+      border-radius: 20px 20px 0 0;
+      border-bottom: none;
+    }
+  }
+
+
+
+  &__input-label-message {
+    font-size: 14px;
+
+    width: 100%;
+
+    display: inline-flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 15px;
+
+    background-color: var(--color-primary);
+    color: var(--_input-message-color);
+
+    border-radius: 0 0 15px 15px;
+
+    &--success {
+      background-color: var(--_input-message-bg-success);
+    }
+
+    &--error {
+      background-color: var(--_input-message-bg-error);
+    }
+  }
+
+  &__label {
+    display: inline-block;
+
+    padding-inline: var(--_label-inline-padding);
+    border-radius: 100vmax;
+
+    background-color: none;
+    color: var(--color-secondary);
+
+    position: absolute;
+    top: 50%;
+    left: calc(var(--_input-padding-inline) + var(--_border-width) - var(--_label-inline-padding));
+    translate: 0 -50%;
+
+    transform-origin: center left;
+
+
+    font-size: 18px;
+
+    transition: top var(--_transition-length) ease-in-out,
+      left var(--_transition-length) ease-in-out,
+      translate var(--_transition-length) ease-in-out,
+      scale var(--_transition-length) ease-in-out,
+      background-color var(--_transition-length) ease-in-out,
+      color var(--_transition-length) ease-in-out;
+  }
+
+  :is(.contact-page__input, .contact-page__text-area) {
+    clip-path: polygon(0% 0%,
+        var(--_end-x) 0%,
+        var(--_end-x) var(--_border-width),
+        var(--_start-x) var(--_border-width),
+        var(--_start-x) 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%);
+
+    --_clip-transition-length: var(--_transition-length);
+    transition: border-color var(--_transition-length) ease-in-out,
+      background-color var(--_transition-length) ease-in-out, clip-path var(--_clip-transition-length) ease-in-out;
+
+    &:focus {
+
+      border-color: var(--scrollbar-thumb-bg-color);
+
+      &+.contact-page__label {
+        color: var(--scrollbar-thumb-bg-color);
+      }
+    }
+
+    &:is(:focus, :not(:placeholder-shown)) {
+      // Skibidi toilet, I'm going insane I've been on this for hours
+
+      clip-path: polygon(0% 0%,
+          /* Top-left corner */
+          var(--_start-x) 0%,
+          /* X start */
+          var(--_start-x) var(--_border-width),
+          /* Left border */
+          var(--_end-x) var(--_border-width),
+          /* X end with width */
+          var(--_end-x) 0%,
+          /* X end */
+          100% 0%,
+          /* Top-right corner */
+          100% 100%,
+          /* Bottom-right corner */
+          0% 100%
+          /* Bottom-left corner */
+        );
+
+
+      &+.contact-page__label {
+
+        scale: var(--_label-scale-on-input-focus);
+        top: calc(var(--_border-width) / 2);
+        left: calc(var(--_start-x));
+      }
+    }
+  }
+
+  &__input {
+    @include inputs-styling;
+    border: var(--_border-width) solid var(--border-color);
+    padding-inline: var(--_input-padding-inline);
+
+    width: 100%;
+    min-height: 75px;
+    font-size: 18px;
+
+    border-radius: 20px;
+
+    background-color: var(--semi-transparent-bg);
+  }
+
+  &__text-area {
+    @include inputs-styling;
+    border: var(--_border-width) solid var(--border-color);
+    padding-inline: var(--_input-padding-inline);
+
+    min-height: 80px;
+
+    resize: none;
+
+
+    background-color: var(--semi-transparent-bg);
+
+    width: 100%;
+
+    font-size: 18px;
+
+    border-radius: 20px;
+
+    font-size: 18px;
+
+  }
+}

@@ -1,0 +1,7 @@
+@use "../utils/" as *;
+
+.link-button {
+    @include link-btn-styling;
+    height: 50px;
+    border-radius: 10px;
+}

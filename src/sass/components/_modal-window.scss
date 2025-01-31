@@ -1,0 +1,84 @@
+@use "../utils/" as *;
+
+.modal-window {
+    --_close-button-width: 32px;
+    --_scrollbar-margin-block: 30px;
+    --_scrollbar-bg: transparent;
+
+    background-color: var(--bg-secondary);
+    border: 2px solid currentColor;
+
+    border-radius: 25px;
+
+    min-height: 250px;
+    min-width: 250px;
+
+    width: 600px;
+    height: 500px;
+
+    --_transition-duration: 350ms;
+    transition: filter var(--_transition-duration) ease-in-out;
+
+    &::backdrop {
+        backdrop-filter: brightness(50%);
+    }
+
+    & :is(div, section):not(.modal-window__content-wrapper) {
+        margin-top: 32px;
+    }
+
+    &__content-wrapper {
+        //Relative to the window itself
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__close-button {
+        border: 2px solid currentColor;
+        border-radius: 0 0 0 10px;
+
+        position: absolute;
+        right: 0;
+
+        width: var(--_close-button-width);
+        aspect-ratio: 1/1;
+
+        background-color: currentColor;
+
+        &:hover {
+            filter: contrast(75%);
+        }
+
+        &:active {
+            filter: contrast(50%);
+
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            right: 14px;
+
+            height: 15px;
+            width: 2px;
+            background-color: var(--bg-primary);
+
+            rotate: 45deg;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            right: 14px;
+
+            height: 15px;
+            width: 2px;
+            background-color: var(--bg-primary);
+
+            rotate: -45deg;
+        }
+    }
+}

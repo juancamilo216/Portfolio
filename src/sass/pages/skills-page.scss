@@ -1,0 +1,200 @@
+@use "../utils/" as *;
+
+.skills-page {
+    @include center-flex-column(25px);
+
+    &__title {
+        margin-top: 50px;
+    }
+
+    &__card {
+        width: 415px;
+        min-height: 690px;
+        display: block;
+
+        padding: 20px;
+
+        @include tablet-only {
+            //
+        }
+
+        @include mobile-only {
+            //
+            width: 80%;
+            margin: auto;
+        }
+
+        &-title {
+            width: 100%;
+
+            margin-bottom: 25px;
+        }
+
+    }
+
+    &__skills-container {
+        @include center-flex(50px);
+
+        @include tablet-only {
+            @include center-flex-column(50px);
+        }
+
+        @include mobile-only {
+            @include center-flex-column(50px);
+
+            width: 100%;
+
+        }
+    }
+
+    &__skills {
+
+        &-front-end {
+            @include grid(3, 2, 50px);
+            margin-top: 25px;
+
+            @include tablet-only {
+                @include grid(3, 2, 50px);
+                //
+            }
+
+            @include mobile-only {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                width: 50%;
+                margin-right: auto;
+                margin-left: 30px;
+                //
+            }
+        }
+
+        &-back-end {
+            @include grid(3, 2, 50px);
+
+            @include tablet-only {
+                @include grid(3, 2, 50px);
+                //
+            }
+
+            @include mobile-only {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                width: 50%;
+                margin-right: auto;
+                margin-left: 30px;
+                //
+            }
+        }
+    }
+
+
+    &__card-item {
+        position: relative;
+        margin-left: 30px;
+
+        & svg {
+            aspect-ratio: 1/1;
+            height: 20px;
+
+            position: absolute;
+            left: -25px;
+            top: 1.5px;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-skill {}
+
+        &-level {
+            color: var(--color-secondary);
+        }
+    }
+
+
+    &__qualifications {
+
+        &-title {
+            margin-top: 25px;
+        }
+
+        &-subtitle {
+            text-align: center;
+
+            @include mobile-only {
+                margin: 0 5px;
+            }
+        }
+
+        &-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        &-button {
+            padding: 5px 10px;
+            border-radius: 5px;
+
+            transition: background-color 350ms ease-in-out;
+
+            &--active {
+                background-color: var(--color-primary);
+                color: var(--bg-primary);
+            }
+        }
+
+        &-container {}
+
+        &-content {
+
+            min-height: 650px;
+
+            //Properties for the 3D effect on the container
+            transform-style: preserve-3d;
+            perspective: 800px;
+            perspective-origin: center;
+        }
+
+
+        &-education {
+            position: absolute;
+
+            backface-visibility: hidden;
+
+            transform: rotateY(180deg);
+
+            &--active {
+                transform: rotateY(0deg);
+            }
+
+
+            transition: transform 500ms ease-out;
+
+            margin-block: var(--timeline-space);
+        }
+
+        &-experience {
+            position: absolute;
+
+            backface-visibility: hidden;
+
+            transform: rotateY(-180deg);
+
+            &--active {
+                transform: rotateY(0deg);
+            }
+
+            transition: transform 500ms ease-out;
+
+            margin-block: var(--timeline-space);
+        }
+    }
+}

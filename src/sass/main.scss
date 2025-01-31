@@ -1,0 +1,38 @@
+//Utils other than variabls, maps and mixins
+@forward "./utils/js-classes";
+
+//Base
+@forward "./base/default-style";
+@forward "./base/normalization";
+@forward "./base/typography";
+
+//Components
+@forward "./components/scrollbar";
+@forward "./components/spin-loader";
+@forward "./components/link-button";
+@forward "./components/card";
+@forward "./components/timeline";
+@forward "./components/modal-window";
+@forward "./components/buffer-loader";
+@forward "./components/slider";
+@forward "./components/canvas";
+@forward "./components/diploma-card";
+@forward "./components/button";
+@forward "./components/lazy-image-loader";
+
+//Layout
+@forward "./layout/header";
+@forward "./layout/page-layout";
+@forward "./layout/footer";
+
+//Pages
+@forward "./pages/error-page.scss";
+@forward "./pages/home-page";
+@forward "./pages/about-page.scss";
+@forward "./pages/skills-page.scss";
+@forward "./pages/services-page.scss";
+@forward "./pages/portfolio-page.scss";
+@forward "./pages/contact-page.scss";
+
+//Themes
+@forward "./themes/dark-theme";

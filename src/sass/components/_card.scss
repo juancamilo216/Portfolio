@@ -1,0 +1,30 @@
+@use "../utils/" as *;
+
+.card {
+    @include center-flex-column(10px);
+
+    min-width: 160px;
+    min-height: 130px;
+
+    @include card-styling;
+
+
+    @include mobile-only {}
+
+    &__title {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & svg {
+            aspect-ratio: 1/1;
+            height: 25px !important;
+        }
+    }
+
+    &__description {
+        color: var(--color-secondary);
+        font-size: 14px;
+    }
+}

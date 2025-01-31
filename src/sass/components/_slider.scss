@@ -1,0 +1,164 @@
+@use "../utils/" as *;
+
+.slider {
+    @include center-flex-column(25px);
+
+    overflow-x: hidden;
+
+    @include mobile-only {
+        overflow-x: visible;
+
+        margin-bottom: 40px;
+
+        gap: 50px;
+
+    }
+
+    transition: translate 350ms ease-in-out;
+
+    position: relative;
+    width: 100%;
+
+
+    &__container {
+
+        --_container-gap: 25px;
+        position: relative;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--_container-gap);
+
+        margin-left: 65%;
+
+        @include mobile-only {
+            margin-left: 38%;
+        }
+
+
+        width: 100vw;
+
+
+        transition: translate 350ms ease-in-out;
+    }
+
+
+    &__button {
+        position: absolute;
+        top: 40%;
+
+        z-index: 69;
+
+        @include center-flex-column;
+
+        background-color: var(--bg-secondary);
+
+        border: 2px solid currentColor;
+        border-radius: 15px;
+
+        padding: 10px;
+
+        @include mobile-only {
+            top: 92%;
+        }
+
+        --_x-offset:30px;
+
+        &--left {
+            left: var(--_x-offset);
+
+            @include mobile-only {
+                --_x-offset: 36px;
+            }
+
+            rotate: -90deg;
+        }
+
+
+        &--right {
+            right: var(--_x-offset);
+
+            @include mobile-only {
+                --_x-offset: 36px;
+            }
+
+            rotate: 90deg;
+        }
+    }
+
+    &__indexation-container {
+        display: flex;
+        gap: 10px;
+
+    }
+
+    &__index {
+        aspect-ratio: 1/1;
+
+        height: 10px;
+
+        background-color: var(--color-secondary);
+        filter: invert(100%) hue-rotate(180deg);
+
+        border-radius: 50%;
+
+        transition: opacity 350ms ease-in-out;
+
+        opacity: 35%;
+
+        &--active {
+
+            opacity: 100%;
+        }
+    }
+
+
+    &__card {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 5px;
+
+
+        padding: 20px;
+
+        min-width: 400px;
+
+        @include mobile-only {
+            min-height: 200px;
+            max-height: 300px;
+
+            min-width: 200px;
+        }
+
+        width: 400px;
+        height: 100%;
+
+        min-height: 250px;
+
+        &-image {
+            aspect-ratio: 1/1;
+            width: 50px;
+
+            @include fit-image;
+
+            border-radius: 50%;
+        }
+
+        &-text {}
+
+        &-title {
+            font-weight: 600;
+
+            color: var(--color-primary);
+        }
+
+        &-description {
+            font-size: 14px;
+
+            color: var(--color-secondary);
+            font-style: italic;
+        }
+    }
+}

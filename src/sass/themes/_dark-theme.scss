@@ -1,0 +1,61 @@
+@use "../utils/" as *;
+
+@media (prefers-color-scheme: dark) {
+
+    //CSS
+    :root {
+        --bg-primary: #050505;
+        --bg-secondary: black;
+
+        --color-primary: #cdcdcd;
+        --color-primary--hover: #bfbfbf;
+        --color-primary--active: #a3a3a3;
+        --color-secondary: #848484;
+
+        --semi-transparent-bg: rgba(0, 0, 0, 70%);
+
+        --border-color: #242424;
+
+        --scrollbar-track-bg-color: black;
+        --scrollbar-thumb-bg-color: #ababab;
+        --scrollbar-thumb-bg-color--hover: #8a8a8a;
+        --scrollbar-thumb-bg-color--active: #4f4f4f;
+
+        --selection-bg: #838383;
+        --selection-color: white;
+
+        //For the images
+        .invert--dark-mode-only {
+            filter: invert(100%) hue-rotate(180deg);
+        }
+
+        .services-page__card-icon {
+            filter: invert(100%) hue-rotate(180deg);
+        }
+
+        .contact-page__contact-card-icon {
+            filter: invert(100%) hue-rotate(180deg);
+        }
+
+        .canvas {
+            filter: blur(5px) invert(0%);
+
+            @include mobile-only {
+                filter: blur(10px) invert(0%);
+            }
+        }
+
+        .svg-icon {
+            filter: invert(100%) hue-rotate(180deg);
+        }
+    }
+
+    ::backdrop {
+        --backdrop-bg-color: rgba(0, 0, 0, 0.5);
+
+        --scrollbar-track-bg-color: black;
+        --scrollbar-thumb-bg-color: #ababab;
+        --scrollbar-thumb-bg-color--hover: #8a8a8a;
+        --scrollbar-thumb-bg-color--active: #4f4f4f;
+    }
+}

@@ -1,0 +1,217 @@
+@use "../utils/" as *;
+
+.about-page {
+  @include center-flex-column(50px);
+
+  &__title {
+    margin-top: 50px;
+  }
+
+  &__subtitle {}
+
+  &__introduction-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 15px;
+
+    width: 95%;
+    margin: auto;
+
+    @include tablet-only {
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    @include mobile-only {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+
+  &__image-container {
+    @include center-flex-column;
+
+    border-radius: 25px;
+    width: 30%;
+
+    @include mobile-only {
+      width: 75%;
+      margin: auto;
+    }
+
+  }
+
+  &__image {
+    border-radius: inherit;
+
+    mask-image: linear-gradient(180deg, black var(--mask-image-offset), transparent);
+
+    transition: --mask-image-offset 500ms ease-in-out, opacity 250ms ease-in-out;
+
+    width: 100%;
+    height: 100%;
+    min-height: 410px;
+    max-height: 420px;
+
+    filter: url(#pixel-noise);
+
+
+    @include desktop-only {
+      object-fit: contain;
+      width: auto;
+    }
+
+    @include laptop-only {
+      max-height: none;
+    }
+
+    @include mobile-only {
+      height: 820px;
+    }
+
+    &:hover {
+      --mask-image-offset: 90%;
+    }
+  }
+
+  &__text-cards-container {
+
+    width: 60%;
+
+    padding: 0 50px;
+
+    @include tablet-only {
+      width: 75%;
+      margin: auto;
+      padding: 0 0px;
+    }
+
+    @include mobile-only {
+      width: 75%;
+      margin: auto;
+      padding: 0 0px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    &>* {
+      flex: 1 1 25%;
+    }
+  }
+
+  &__card {
+
+
+    @include center-flex-column(10px);
+
+    min-width: 160px;
+    min-height: 130px;
+
+    background-color: var(--bg-secondary);
+
+    border: 2px solid var(--border-color);
+
+    border-radius: 10px;
+
+    &-title {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      & svg {
+        aspect-ratio: 1/1;
+        height: 25px;
+      }
+    }
+
+    &-description {
+      color: var(--color-secondary);
+      font-size: 14px;
+
+      @include mobile-only {
+        text-align: justify;
+      }
+    }
+  }
+
+  &__text {
+    @include tablet-only {
+      @include center-flex-column;
+    }
+
+    @include mobile-only {
+      @include center-flex-column;
+    }
+  }
+
+  &__description {
+    @include card-styling;
+    color: var(--color-secondary);
+
+    padding: 20px 20px;
+
+    margin-block: 20px;
+
+    @include mobile-only {
+      background-color: transparent;
+      border: none;
+
+      padding: 0;
+
+      margin-block: 30px;
+      text-align: justify;
+    }
+  }
+
+  &__resume-button {
+    margin-top: 20px;
+
+    width: auto;
+
+    @include tablet-only {
+      width: 100%;
+    }
+
+    @include mobile-only {
+      width: 100%;
+    }
+  }
+
+  &__diplomas {
+    width: 75%;
+    margin-top: 30px;
+
+    &-title {
+      padding: 20px 0;
+
+      text-align: center;
+    }
+
+    margin-bottom: 25px;
+  }
+
+  &__diplomas-container {
+    width: 100%;
+
+    @include grid(2, 2, 25px);
+
+    @include tablet-only {
+      @include grid(2, 2, 25px);
+    }
+
+    @include mobile-only {
+      @include center-flex-column(25px);
+    }
+  }
+
+  &__diploma-card {
+    @include card-styling;
+  }
+}
